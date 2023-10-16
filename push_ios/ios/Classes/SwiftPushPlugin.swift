@@ -25,6 +25,7 @@ public class SwiftPushPlugin: NSObject, FlutterPlugin {
         if notification != nil {
             PushHostHandlers.notificationTapWhichLaunchedAppUserInfo = notification
         }
+        print("push-plugin: didFinishLaunchingWithOptions");
 
         return true
     }
