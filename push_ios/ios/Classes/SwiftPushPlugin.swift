@@ -18,17 +18,16 @@ public class SwiftPushPlugin: NSObject, FlutterPlugin {
         registrar.addApplicationDelegate(self)
     }
 
-    public func application(_: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable: Any]) -> Bool {
-        UIApplication.shared.registerForRemoteNotifications()
-
-        let notification = launchOptions[UIApplication.LaunchOptionsKey.remoteNotification] as! [AnyHashable: Any]?
-        if notification != nil {
-            PushHostHandlers.notificationTapWhichLaunchedAppUserInfo = notification
-        }
-        print("push-plugin: didFinishLaunchingWithOptions");
-
-        return true
-    }
+    // public func application(_: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable: Any]) -> Bool {
+    //     UIApplication.shared.registerForRemoteNotifications()
+    //
+    //     let notification = launchOptions[UIApplication.LaunchOptionsKey.remoteNotification] as! [AnyHashable: Any]?
+    //     if notification != nil {
+    //         PushHostHandlers.notificationTapWhichLaunchedAppUserInfo = notification
+    //     }
+    //
+    //     return true
+    // }
 
     public func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         pushHostHandlers.application(application, didRegisterForRemoteNotificationsWithDeviceToken: deviceToken)
